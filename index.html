@@ -277,7 +277,7 @@
 		  		transform: translate(-50%,calc(50% - 0px));
 		  	}
 		  	.ucapan{
-		  		font-size: 15pt;
+		  		font-size: 25pt;
 		  		transform: translate(-50%,calc(50% + 50px));
 		  	}
 		  	.quotes,.note{
@@ -379,12 +379,12 @@
 				<span></span>
 				<span></span>
 			</div>
+			<div class="ucapan" id="quote"></div>
 			<div class="jam" id="time">
 				00:00:00
 			</div>
-			<div class="ucapan" id="quote"></div>
 			<div class="note">ngeng</div>
-			<div class="pengembang">Andika Sujanadi</div>
+			<div class="pengembang"><input type="hidden" name="pengembang" id="pengembang" value="Andika Sujanadi"></div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -497,7 +497,7 @@
 				manual();
 			}
 			function bro(){
-				namaku = $(".pengembang").text();
+				namaku = $("#pengembang").val();
 			    var hex, i;
 
 			    var result = "";
@@ -510,11 +510,11 @@
 				}
 			}
 			function specialEffects(){
-				if(localStorage.getItem("manualColor")=="#4c1130"){
-					setTimeout(function() { createNote("Mangat Din ngepush course javascriptnya :v"); }, 5000);
+				if(localStorage.getItem("manualColor")=="#cc0000"){
+					setTimeout(function() { createNote("Bolehkah Aku Memilikimu Di Masa Yang Akan Datang?"); }, 5000);
 				}
 				else if(localStorage.getItem("manualColor")=="#000000"){
-					setTimeout(function() { createNote("Buat belajar bro, bukan buat neko neko :v"); }, 5000);
+					setTimeout(function() { createNote("Gimana Harimu, Sayang?"); }, 5000);
 				}
 			}
 			function createNote(isi){
@@ -533,8 +533,9 @@
 					.reveal(2000)
 				    .start()
 				    .set({
-				        characters: '░░█ /<▒▓▒ ▒░▒█/ █/▒ ▒▓/█▒ ▓▒░▓ ██░ ▒░▓░ ▒░▓█',
-				        speed: 150
+				        // characters: '░░█ /<▒▓▒ ▒░▒█/ █/▒ ▒▓/█▒ ▓▒░▓ ██░ ▒░▓░ ▒░▓█',
+				        characters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+				        speed: 300
 				    });
 				    localStorage.setItem("manualColor", "#0079FF");
 			}
@@ -871,38 +872,80 @@
 				M=m;
 				S=s;
 
+				// if (H<5){
+				// 	txt='Have a Good Night:)';
+				// 	if(txt != txt2 && !starting)
+				// 		document.getElementById("quote").innerHTML = txt;
+				// 	txt2=txt;
+				// }
+				// else if(H<9){
+				// 	txt='Good Morning You:)';
+				// 	if(txt != txt2 && !starting)
+				// 		document.getElementById("quote").innerHTML = txt;
+				// 	txt2=txt;
+				// }
+				// else if(H<12){
+				// 	txt='Be Happy Today:)';
+				// 	if(txt != txt2 && !starting)
+				// 		document.getElementById("quote").innerHTML = txt;
+				// 	txt2=txt;
+				// }
+				// else if(H<16){
+				// 	txt='Good Afternoon Dear:)';
+				// 	if(txt != txt2 && !starting)
+				// 		document.getElementById("quote").innerHTML = txt;
+				// 	txt2=txt;
+				// }
+				// else if(H<19){
+				// 	txt='Good Afternoon, Take a Rest:)';
+				// 	if(txt != txt2 && !starting)
+				// 		document.getElementById("quote").innerHTML = txt;
+				// 	txt2=txt;
+				// }
+				// else if(H<23){
+				// 	txt='Good Evening Sweetie:)';
+				// 	if(txt != txt2 && !starting)
+				// 		document.getElementById("quote").innerHTML = txt;
+				// 	txt2=txt;
+				// }
+				// else if(H<=24){
+				// 	txt='Time to Sleep, Good Night:)';
+				// 	if(txt != txt2 && !starting)
+				// 		document.getElementById("quote").innerHTML = txt;
+				// 	txt2=txt;
+				// }
 				if (H<5){
-					txt='Have a Good Night:)';
+					txt='Good Night, Have a Nice Dream :)';
 					if(txt != txt2 && !starting)
 						document.getElementById("quote").innerHTML = txt;
 					txt2=txt;
 				}
 				else if(H<9){
-					txt='Good Morning You:)';
+					txt='Good Morning, Jangan Lupa Sarapan ya';
 					if(txt != txt2 && !starting)
 						document.getElementById("quote").innerHTML = txt;
 					txt2=txt;
 				}
 				else if(H<12){
-					txt='Be Happy Today:)';
+					txt='Hei Sayang, Semangat Buat Hari Ini ya';
 					if(txt != txt2 && !starting)
 						document.getElementById("quote").innerHTML = txt;
 					txt2=txt;
 				}
 				else if(H<16){
-					txt='Good Afternoon Dear:)';
+					txt='Sayang, Makan Siang Bareng Yuk';
 					if(txt != txt2 && !starting)
 						document.getElementById("quote").innerHTML = txt;
 					txt2=txt;
 				}
 				else if(H<19){
-					txt='Good Afternoon, Take a Rest:)';
+					txt='Hallo, Kamu Udah Pulang?';
 					if(txt != txt2 && !starting)
 						document.getElementById("quote").innerHTML = txt;
 					txt2=txt;
 				}
 				else if(H<23){
-					txt='Good Evening Sweetie:)';
+					txt='Gimana Harimu, Sayang';
 					if(txt != txt2 && !starting)
 						document.getElementById("quote").innerHTML = txt;
 					txt2=txt;
@@ -977,8 +1020,8 @@
 
 			const quotes = [
 			  {
-			    "quote": "Bila kau tak tahan lelahnya belajar, maka kau harus tahan menanggung perihnya kebodohan",
-			    "source": "Imam Syafi'i"
+			    "quote": "Other call it dream, but i call it plan",
+			    "source": "Khai Zulfa"
 			  },
 			  {
 			    "quote": "Just because I carry it all so well doesn't mean it's not heavy",
@@ -993,16 +1036,8 @@
 			    "source": "Andika Sujanadi"
 			  },
 			  {
-			    "quote": "I own my own life and my own decission",
-			    "source": "Andika Sujanadi"
-			  },
-			  {
-			    "quote": "Every failure, rejection, betrayal should be the reason for you to come back stronger in life by working on goals and achiving them",
-			    "source": "Andika Sujanadi"
-			  },
-			  {
-			    "quote": "Masa lalu dan frustasi merupakan fondasi dasar untuk menciptakan kembali kehidupan baru yang lebih baik",
-			    "source": "Anthony Robbins"
+			    "quote": "Disini ku berdiri, menanti waktu yang tepat, hingga akhirnya ku mampu katakan padamu 'Mau Kah Denganku?'",
+			    "source": "Budi Doremi"
 			  },
 			  {
 			    "quote": "Ada kalimat yang ingin aku dapatkan dari dia tapi aku dapat dari orang lain",
@@ -1017,19 +1052,19 @@
 			    "source": "Andika Sujanadi"
 			  },
 			  {
-			    "quote": "Seorang bahagia bukan karena semua benar dalam hidupnya, tapi sikap terhadap hidupnya yang benar",
-			    "source": "Sundar Pichai"
+			    "quote": "A Bird cannot fly, If it does not fall",
+			    "source": "Khai Zulfa"
 			  },
 			  {
 			    "quote": "Jika hari ini harus lebih baik darpada hari kemarin dan hari esok lebih baik daripada hari ini maka kelahiranmu adalah hari terburuk yang pernah ada",
 			    "source": "Om Hell"
 			  },
 			]
-			setInterval(randomQuote, 60000);
+			setInterval(randomQuote, 10000);
 			function randomQuote(){
 			  let random = quotes[Math.floor(Math.random() * quotes.length)];
 			  quotation.innerText = `"${random.quote}"`;
-			  source.innerText = random.source;
+			  // source.innerText = random.source;
 			}
 
 			var i = 0;
